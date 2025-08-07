@@ -1,0 +1,23 @@
+--- a/src/input.rs
++++ b/src/input.rs
+@@ -320,9 +320,15 @@ impl Config {
+ }
+ 
+ pub fn default_config_path() -> PathBuf {
+-    let Some(mut config_path) = dirs::home_dir() else {
+-        panic!("Could not infer config file path.");
+-    };
+-    config_path.push(".rustscan.toml");
+-    config_path
++    // Use OpenWrt standard configuration path
++    let config_path = PathBuf::from("/etc/rustscan/rustscan.toml");
++    
++    // Fallback to user home directory if OpenWrt config doesn't exist
++    if !config_path.exists() {
++        if let Some(mut home_path) = dirs::home_dir() {
++            home_path.push(".rustscan.toml");
++            return home_path;
++        }
++    }
++    config_path
+ }

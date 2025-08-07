@@ -1,0 +1,9 @@
+# RustScan Configuration for OpenWrt
+# Minimal configuration compatible with RustScan 2.3.0
+
+batch_size = 2000
+timeout = 1500
+tries = 1
+greppable = false
+accessible = false
+ulimit = 3000
