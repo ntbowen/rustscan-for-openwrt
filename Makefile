@@ -4,10 +4,12 @@ PKG_NAME:=rustscan
 PKG_VERSION:=2.4.1
 PKG_RELEASE:=1
 
-PKG_SOURCE:=master.tar.gz
-PKG_SOURCE_URL:=https://github.com/bee-san/RustScan/archive/refs/heads/
-PKG_HASH:=skip
-PKG_BUILD_DIR:=$(BUILD_DIR)/RustScan-master
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/bee-san/RustScan.git
+PKG_SOURCE_VERSION:=master
+PKG_SOURCE_SUBMODULES:=skip
+PKG_HASH:=b20a094c4c76c7c68ccb0945f04499ac7c25b0ea9356421b1cdc0dd4e4e35d6d
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_MAINTAINER:=ntbowen <https://github.com/ntbowen>
 PKG_LICENSE:=GPL-3.0-only
